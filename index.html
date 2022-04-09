@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="wrapper">
+        <div class="container">
+            <input readonly type="text" placeholder="Сколько гостей" id="dropdown" class="dropdown">
+            <img src="./expand_more.svg" class="arrow__down" alt="#">
+            <div class="content">
+                <div class="content__wrapper">
+                    <div class="content-mini">
+                        <p class="text first-child">взрослые</p>
+                        <div class="icon__left"><img src="./-.svg" alt=""></div>
+                        <p id="Value1" class="icon__text">0</p>
+                        <div class="icon__right"><img src="./+.svg" alt=""></div>
+                    </div>
+                    <div class="content-mini">
+                        <p class="text">дети</p>
+                        <div class="icon__left"><img src="./-.svg" alt=""></div>
+                        <p  id="Value2" class="icon__text">0</p>
+                        <div class="icon__right"><img src="./+.svg" alt=""></div>
+                    </div>
+                    <div class="content-mini">
+                        <p class="text last">младенцы</p>
+                        <div class="icon__left"><img src="./-.svg" alt=""></div>
+                        <p id="Value3" class="icon__text">0</p>
+                        <div class="icon__right"><img src="./+.svg" alt=""></div>
+                    </div>
+                    <div class="last__text">
+                        <p class="clear">очистить</p>
+                        <p class="onc">принять</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./index.js"></script>
+</body>
+
+</html>
