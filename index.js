@@ -1,28 +1,35 @@
+// in whis block I am find main DOM elements.
 const dropdown = document.querySelector('.dropdown');
-
-dropdown.onclick = () => {
-    const arrow = document.querySelector('.arrow__down');
-    const content = document.querySelector('.content');
-
-    content.classList.toggle('content__active');
-    arrow.classList.toggle('arrow__up');
-}
 const Pluses = document.querySelectorAll(".icon__right");
 const Minuses = document.querySelectorAll(".icon__left");
 const container = document.querySelector(".container");
 const wrappers = document.querySelectorAll(".content-mini");
 const clear = document.querySelector('.clear');
 const input = document.getElementById('dropdown');
-
-//const textValues = document.getElementsByClassName("icon__text").innerHTML;
-
-
+const allVal = document.querySelectorAll(".icon__text");
+// in whis coode  block I am find main DOM elements. 
 
 
+//(--last version of coode--) - this means that I right it last.
 
+//--last version of coode-- const textValues = document.getElementsByClassName("icon__text").innerHTML;
+
+
+// this handler on all DropDown
 container.addEventListener('click', function (){
 
-    const allVal = document.querySelectorAll(".icon__text");
+    // this dropdown.onclick opend body dropdown.
+    dropdown.onclick = () => {
+        const arrow = document.querySelector('.arrow__down');
+        const content = document.querySelector('.content');
+    
+        content.classList.toggle('content__active');
+        arrow.classList.toggle('arrow__up');
+    }
+    // this dropdown.onclick opend body dropdown.
+
+
+    // this function sumValue accepts iter object and sums up his values. 
     sumValue = (arrayVal) => {
         valuesSum = 0;
         for(val of arrayVal){
@@ -32,15 +39,17 @@ container.addEventListener('click', function (){
         return valuesSum;
     }
     sumValue(allVal);
-    console.log(typeof(valuesSum));
+    console.log(valuesSum);
+    // this function sumValue accepts iter object and sums up his values. 
 
-    // const textValue1 = document.getElementById("Value1");
-    // const textValue2 = document.getElementById("Value2");
-    // const textValue3 = document.getElementById("Value3");
+    // --last version of coode-- const textValue1 = document.getElementById("Value1");
+    // --last version of coode-- const textValue2 = document.getElementById("Value2");
+    // --last version of coode-- const textValue3 = document.getElementById("Value3");
 
-    // sumValue = +textValue1.innerHTML + +textValue2.innerHTML + +textValue3.innerHTML;
+    // --last version of coode-- sumValue = +textValue1.innerHTML + +textValue2.innerHTML + +textValue3.innerHTML;
 
     
+    // this function accept sums up values last function - sumValue, and records new word in placeholder
     const inPute = (valuesSum) => {
         if(valuesSum === 1){
             input.placeholder =  valuesSum + "  Гость";
@@ -63,14 +72,15 @@ container.addEventListener('click', function (){
 
         }
         inPute(valuesSum);
+        // this function accept sums up values last function - sumValue, and records new word in placeholder
 
 
+        // this function for button clear, he resset valuesSum and records in DOM, placeholder first values
         clear.onclick = () => {
             sumValue = (arrayVal) => {
                 valuesSum = 0;
                 for(val of arrayVal){
                     text = +val.innerHTML;
-                    valuesSum = 0;
                     val.innerHTML = '0';
                     console.log(val);
                 }
@@ -79,12 +89,12 @@ container.addEventListener('click', function (){
             sumValue(allVal);
             console.log(valuesSum);
  
-            
-            // textValue1.innerHTML = '0';
-            // textValue2.innerHTML = '0';
-            // textValue3.innerHTML = '0';
-            // textVal = textValue1.innerHTML;
-            input.placeholder = "Сколько гостей";
+            // --last version of coode-- textValue1.innerHTML = '0';
+            // --last version of coode-- textValue2.innerHTML = '0';
+            // --last version of coode-- textValue3.innerHTML = '0';
+            // --last version of coode-- textVal = textValue1.innerHTML;
+            // --last version of coode-- input.placeholder = "Сколько гостей";
+
             removePlusAndMinus = (valuesSum) => {
                 for(plus of Pluses){
                     if(valuesSum == 0){
@@ -98,14 +108,10 @@ container.addEventListener('click', function (){
                 }
             }
             removePlusAndMinus(valuesSum)
-
         }
+        // this function for button clear, he resset valuesSum and records in DOM, placeholder first values
 
-
-        
-    
-
-
+        //this function processes click on plus and minus and his styles.
     Object.values(wrappers).map(wrapper =>{
         const plus = document.querySelector('.icon__right');
         Object.values(Pluses).map(plus =>{
@@ -159,7 +165,8 @@ container.addEventListener('click', function (){
             }
         })
     }) 
+    //this function processes click on plus and minus and his styles.
 })
-
+// this handler on all DropDown
 
 
