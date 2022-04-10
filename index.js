@@ -22,19 +22,23 @@ const input = document.getElementById('dropdown');
 
 container.addEventListener('click', function (){
 
-    
+    const allVal = document.querySelectorAll(".icon__text");
+    sumValue = (arrayVal) => {
+        valuesSum = 0;
+        for(val of arrayVal){
+            text = +val.innerHTML;
+            valuesSum += text;
+        }
+        return valuesSum;
+    }
+    sumValue(allVal);
+    console.log(typeof(valuesSum));
 
-    const textValue1 = document.getElementById("Value1");
-    const textValue2 = document.getElementById("Value2");
-    const textValue3 = document.getElementById("Value3");
+    // const textValue1 = document.getElementById("Value1");
+    // const textValue2 = document.getElementById("Value2");
+    // const textValue3 = document.getElementById("Value3");
 
-    console.log(textValue1.innerHTML,textValue2.innerHTML,textValue3.innerHTML);
-    sumValue = +textValue1.innerHTML + +textValue2.innerHTML + +textValue3.innerHTML;
-    console.log(typeof(sumValue));
-
-
-
-
+    // sumValue = +textValue1.innerHTML + +textValue2.innerHTML + +textValue3.innerHTML;
 
     
     const inPute = (valuesSum) => {
@@ -58,27 +62,44 @@ container.addEventListener('click', function (){
             }
 
         }
-        inPute(sumValue);
+        inPute(valuesSum);
 
 
         clear.onclick = () => {
-            textValue1.innerHTML = '0';
-            textValue2.innerHTML = '0';
-            textValue3.innerHTML = '0';
-            textVal = textValue1.innerHTML;
-            input.placeholder = "Сколько гостей";
-            for(plus of Pluses){
-                if(textVal == 0){
-                    plus.classList.remove('icon__right-hite');
+            sumValue = (arrayVal) => {
+                valuesSum = 0;
+                for(val of arrayVal){
+                    text = +val.innerHTML;
+                    valuesSum = 0;
+                    val.innerHTML = '0';
+                    console.log(val);
                 }
-            for(minus of Minuses){
-                    if(textVal == 0){
-                        minus.classList.remove('icon__left-active');
+                return valuesSum;
+            }
+            sumValue(allVal);
+            console.log(valuesSum);
+ 
+            
+            // textValue1.innerHTML = '0';
+            // textValue2.innerHTML = '0';
+            // textValue3.innerHTML = '0';
+            // textVal = textValue1.innerHTML;
+            input.placeholder = "Сколько гостей";
+            removePlusAndMinus = (valuesSum) => {
+                for(plus of Pluses){
+                    if(valuesSum == 0){
+                        plus.classList.remove('icon__right-hite');
+                    }
+                for(minus of Minuses){
+                        if(valuesSum == 0){
+                            minus.classList.remove('icon__left-active');
+                        }
                     }
                 }
             }
+            removePlusAndMinus(valuesSum)
+
         }
-        console.log(sumValue);
 
 
         
