@@ -7,6 +7,7 @@ const wrappers = document.querySelectorAll(".content-mini");
 const clear = document.querySelector('.clear');
 const input = document.getElementById('dropdown');
 const allVal = document.querySelectorAll(".icon__text");
+
 // in whis coode  block I am find main DOM elements. 
 
 
@@ -17,6 +18,13 @@ const allVal = document.querySelectorAll(".icon__text");
 
 // this handler on all DropDown
 container.addEventListener('click', function (){
+
+    const Value1 = document.getElementById('Value1');
+    const Value2 = document.getElementById('Value2');
+    const Value3 = document.getElementById('Value3');
+    let Value3Number = +Value3.innerHTML
+    sumValueRight = +Value1.innerHTML + +Value2.innerHTML;
+    console.log(Value1, Value2, Value3, sumValueRight)
 
     // this dropdown.onclick opend body dropdown.
     dropdown.onclick = () => {
@@ -39,7 +47,6 @@ container.addEventListener('click', function (){
         return valuesSum;
     }
     sumValue(allVal);
-    console.log(valuesSum);
     // this function sumValue accepts iter object and sums up his values. 
 
     // --last version of coode-- const textValue1 = document.getElementById("Value1");
@@ -52,26 +59,43 @@ container.addEventListener('click', function (){
     // this function accept sums up values last function - sumValue, and records new word in placeholder
     const inPute = (valuesSum) => {
         if(valuesSum === 1){
-            input.placeholder =  valuesSum + "  Гость";
+            return valuesSum + "  Гость";
         }
         else if(valuesSum === 0) {
-            input.placeholder = "Сколько гостей";
+            return "Сколько гостей";
             }
         else if(valuesSum <= 4){
-            input.placeholder =  valuesSum + "  Гостя";
+            return  valuesSum + "  Гостя";
             }
         else if(valuesSum > 4){
-            input.placeholder =  valuesSum + "  Гостей";
+            return valuesSum + "  Гостей";
+            }
         }
-        if(valuesSum > 0){
-            clear.classList.add('clear__active');
-            }
-        else {
-            clear.classList.remove('clear__active');
-            }
+        inPute(sumValueRight);
 
-        }
-        inPute(valuesSum);
+        const inPute2 = (Baby) => {
+            if(Baby === 1){
+                return `,  ${Baby} Младенец`;
+            }
+            else if(Baby === 0) {
+                return " ";
+                }
+            else if(Baby <= 4){
+                return  `,  ${Baby} Младенца`;
+                }
+            else if(Baby > 4){
+                return `,  ${Baby} Младенцев`;
+                }
+            }
+        inPute2(Value3Number);
+
+        console.log(Value3Number);
+
+        textFunc1 = inPute(sumValueRight);
+
+        textFunc2 = inPute2(Value3Number);
+
+        input.placeholder = `${textFunc1} ${textFunc2}`
         // this function accept sums up values last function - sumValue, and records new word in placeholder
 
 
@@ -109,6 +133,14 @@ container.addEventListener('click', function (){
             }
             removePlusAndMinus(valuesSum)
         }
+
+
+        if(valuesSum > 0){
+            clear.classList.add('clear__active');
+            }
+        else {
+            clear.classList.remove('clear__active');
+            }
         // this function for button clear, he resset valuesSum and records in DOM, placeholder first values
 
         //this function processes click on plus and minus and his styles.
